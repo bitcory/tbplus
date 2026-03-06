@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI TOOLBEE GUIDE</title>
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="images/favicon_io/site.webmanifest">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css?v=2.1">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-section" style="cursor: pointer;" onclick="window.location.href='index.html'">
+                <img src="images/favicon_io/favicon-32x32.png" alt="AI TOOLBEE Logo" class="logo-icon">
+                <h1>AI TOOLBEE</h1>
+            </div>
+            <div class="header-info">
+                <span class="badge">v2.0</span>
+            </div>
+            <!-- 모바일 메뉴 토글 버튼 -->
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="메뉴">
+                <i data-lucide="menu" class="menu-toggle-icon"></i>
+            </button>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-content">
+
+                <!-- AI TOOLBEE 소개 -->
+                <div class="menu-section"
+                    style="margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #333;">
+                    <button class="menu-header" onclick="toggleSection('aifi-info')"
+                        style="background: linear-gradient(135deg, #2a2a2a, #1f1f1f); border: 1px solid #444;">
+                        <i data-lucide="book-open" class="menu-icon"></i>
+                        <span>AI TOOLBEE</span>
+                        <i data-lucide="chevron-down" class="chevron-icon" id="aifi-info-chevron"></i>
+                    </button>
+                    <div class="menu-items" id="aifi-info-items">
+                        <a href="#" class="menu-item" onclick="showContent('instructor-intro')">
+                            <i data-lucide="user" style="width: 16px; height: 16px; margin-right: 8px;"></i>
+                            강사 소개
+                        </a>
+                        <a href="#" class="menu-item" onclick="showContent('instructor-reviews')">
+                            <i data-lucide="message-circle" style="width: 16px; height: 16px; margin-right: 8px;"></i>
+                            강의 후기
+                        </a>
+                        <a href="video-gallery.html" class="menu-item">
+                            <i data-lucide="play-circle" style="width: 16px; height: 16px; margin-right: 8px;"></i>
+                            동영상 갤러리
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 튜토리얼 섹션 -->
+                <div class="major-category">
+                    <button class="major-category-header" onclick="toggleMajorCategory('tutorial-category')">
+                        <i data-lucide="book-open" class="category-icon"></i>
+                        <span>튜토리얼</span>
+                        <i data-lucide="chevron-down" class="chevron-icon" id="tutorial-category-icon"></i>
+                    </button>
+                    <div class="major-category-content" id="tutorial-category">
+                        <div class="menu-section">
+                            <a href="#" class="menu-item" onclick="showContent('tutorial-block1')">
+                                <i data-lucide="user" style="width: 16px; height: 16px; margin-right: 8px;"></i>
+                                블록 1: 캐릭터 (Character)
+                            </a>
+                            <a href="#" class="menu-item" onclick="showContent('tutorial-block2')">
+                                <i data-lucide="activity" style="width: 16px; height: 16px; margin-right: 8px;"></i>
+                                블록 2: 행동 (Action)
+                            </a>
+                            <a href="#" class="menu-item" onclick="showContent('tutorial-block3')">
+                                <i data-lucide="package" style="width: 16px; height: 16px; margin-right: 8px;"></i>
+                                블록 3: 소품 (Props)
+                            </a>
+                            <a href="#" class="menu-item" onclick="showContent('tutorial-block4')">
+                                <i data-lucide="map" style="width: 16px; height: 16px; margin-right: 8px;"></i>
+                                블록 4: 배경 (Setting)
+                            </a>
+                            <a href="#" class="menu-item" onclick="showContent('tutorial-block5')">
+                                <i data-lucide="palette" style="width: 16px; height: 16px; margin-right: 8px;"></i>
+                                블록 5: 스타일 (Style)
+                            </a>
+                            <a href="#" class="menu-item" onclick="showContent('tutorial-block6')">
+                                <i data-lucide="sun" style="width: 16px; height: 16px; margin-right: 8px;"></i>
+                                블록 6: 조명 & 시간 (Lighting & Time)
+                            </a>
+                            <a href="#" class="menu-item" onclick="showContent('tutorial-block7')">
+                                <i data-lucide="camera" style="width: 16px; height: 16px; margin-right: 8px;"></i>
+                                블록 7: 카메라 (Camera)
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 전문가 과정 섹션 -->
+                <div class="major-category">
+                    <button class="major-category-header" onclick="toggleMajorCategory('expert-category')">
+                        <i data-lucide="graduation-cap" class="category-icon"></i>
+                        <span>전문가 과정 (AI아트디렉터)</span>
+                        <i data-lucide="chevron-down" class="chevron-icon" id="expert-category-icon"></i>
+                    </button>
+                    <div class="major-category-content" id="expert-category">
+                        <div class="menu-section">
+                            <!-- Part 1 -->
+                            <button class="menu-header" onclick="toggleSection('expert-part1')">
+                                <i data-lucide="alert-circle" class="menu-icon"></i>
+                                <span>Part 1: 왜 작동하지 않는가?</span>
+                                <i data-lucide="chevron-down" class="chevron-icon" id="expert-part1-chevron"></i>
+                            </button>
+                            <div class="menu-items" id="expert-part1-items">
+                                <a href="#" class="menu-item" onclick="showContent('expert-ch1')">
+                                    <i data-lucide="target" style="width: 16px; height: 16px; margin-right: 8px;"></i>
+                                    Ch1. 시작하며
+                                </a>
+                                <a href="#" class="menu-item" onclick="showContent('expert-ch2')">
+                                    <i data-lucide="workflow" style="width: 16px; height: 16px; margin-right: 8px;"></i>
+                                    Ch2. 워크플로우
+                                </a>
+                            </div>
+
+                            <!-- Part 2 -->
+                            <button class="menu-header" onclick="toggleSection('expert-part2')">
+                                <i data-lucide="eye" class="menu-icon"></i>
+                                <span>Part 2: 이미지의 첫인상</span>
+                                <i data-lucide="chevron-down" class="chevron-icon" id="expert-part2-chevron"></i>
+                            </button>
+                            <div class="menu-items" id="expert-part2-items">
+                                <a href="#" class="menu-item" onclick="showContent('expert-ch3')">
+                                    <i data-lucide="palette" style="width: 16px; height: 16px; margin-right: 8px;"></i>
+                                    Ch3. 1.스타일 (Style)
+                                </a>
+                                <a href="#" class="menu-item" onclick="showContent('expert-ch4')">
+                                    <i data-lucide="sliders" style="width: 16px; height: 16px; margin-right: 8px;"></i>
+                                    Ch4. 2.파라미터 (Parameters)
+                                </a>
+                            </div>
+
+                            <!-- Part 3 -->
+                            <button class="menu-header" onclick="toggleSection('expert-part3')">
+                                <i data-lucide="layers" class="menu-icon"></i>
+                                <span>Part 3: 장면 설계하기</span>
+                                <i data-lucide="chevron-down" class="chevron-icon" id="expert-part3-chevron"></i>
+                            </button>
+                            <div class="menu-items" id="expert-part3-items">
+                                <a href="#" class="menu-item" onclick="showContent('expert-ch5')">
+                                    <i data-lucide="user" style="width: 16px; height: 16px; margin-right: 8px;"></i>
+                                    Ch5. 3.주제/피사체 (Subject)
+                                </a>
+                                <a href="#" class="menu-item" onclick="showContent('expert-ch6')">
+                                    <i data-lucide="activity" style="width: 16px; height: 16px; margin-right: 8px;"></i>
+                                    Ch6. 4.액션/포즈 (Action)
+                                </a>
+                                <a href="#" class="menu-item" onclick="showContent('expert-ch7')">
+                                    <i data-lucide="map" style="width: 16px; height: 16px; margin-right: 8px;"></i>
+                                    Ch7. 5.환경/배경 (Environment)
+                                </a>
+                                <a href="#" class="menu-item" onclick="showContent('expert-ch8')">
+                                    <i data-lucide="sun" style="width: 16px; height: 16px; margin-right: 8px;"></i>
+                                    Ch8. 6.조명 (Lighting)
+                                </a>
+                                <a href="#" class="menu-item" onclick="showContent('expert-ch9')">
+                                    <i data-lucide="camera" style="width: 16px; height: 16px; margin-right: 8px;"></i>
+                                    Ch9. 7.카메라 앵글 (Camera)
+                                </a>
+                            </div>
+
+                            <!-- Part 4 -->
+                            <button class="menu-header" onclick="toggleSection('expert-part4')">
+                                <i data-lucide="sparkles" class="menu-icon"></i>
+                                <span>Part 4: 퀄리티와 마무리</span>
+                                <i data-lucide="chevron-down" class="chevron-icon" id="expert-part4-chevron"></i>
+                            </button>
+                            <div class="menu-items" id="expert-part4-items">
+                                <a href="#" class="menu-item" onclick="showContent('expert-ch10')">
+                                    <i data-lucide="droplet" style="width: 16px; height: 16px; margin-right: 8px;"></i>
+                                    Ch10. 8.색감/품질 (Color/Quality)
+                                </a>
+                                <a href="#" class="menu-item" onclick="showContent('expert-ch11')">
+                                    <i data-lucide="check-circle"
+                                        style="width: 16px; height: 16px; margin-right: 8px;"></i>
+                                    Ch11. 최종 조합
+                                </a>
+                            </div>
+
+                            <!-- Part 5 -->
+                            <button class="menu-header" onclick="toggleSection('expert-part5')">
+                                <i data-lucide="book-open" class="menu-icon"></i>
+                                <span>Part 5: 실전 워크샵 & 사전</span>
+                                <i data-lucide="chevron-down" class="chevron-icon" id="expert-part5-chevron"></i>
+                            </button>
+                            <div class="menu-items" id="expert-part5-items">
+                                <a href="#" class="menu-item" onclick="showContent('expert-ch12')">
+                                    <i data-lucide="lightbulb"
+                                        style="width: 16px; height: 16px; margin-right: 8px;"></i>
+                                    Ch12. 실전 워크샵
+                                </a>
+                                <a href="#" class="menu-item" onclick="showContent('expert-ch13')">
+                                    <i data-lucide="book" style="width: 16px; height: 16px; margin-right: 8px;"></i>
+                                    Ch13. 키워드 사전
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 프레임워크 시작 버튼 - 임시 비활성화 -->
+                <!-- <div class="menu-section" style="margin-top: 15px;">
+                    <button class="menu-header" onclick="showContent('framework-stages')" style="background: linear-gradient(135deg, #4caf50, #45a049); border: 1px solid #388e3c;">
+                        <i data-lucide="rocket" class="menu-icon"></i>
+                        <span>프레임워크 시작</span>
+                    </button>
+                </div> -->
+
+                <!-- 이미지 관련 대분류 -->
+                <div class="major-category">
+                    <button class="major-category-header" onclick="toggleMajorCategory('image-category')">
+                        <i data-lucide="image" class="category-icon"></i>
+                        <span>이미지 관련(Image)</span>
+                        <i data-lucide="chevron-down" class="chevron-icon" id="image-category-icon"></i>
+                    </button>
+                    <div class="major-category-content" id="image-category">
+
+
+                        <!-- STYLE 중분류 -->
+                        <div class="menu-section">
+                            <button class="menu-header" onclick="toggleSection('style')">
+                                <i data-lucide="palette" class="menu-icon"></i>
+                                <span>스타일(STYLE)</span>
+                                <i data-lucide="chevron-down" class="chevron-icon" id="style-chevron"></i>
+                            </button>
+                            <div class="menu-items" id="style-items">
+
+                                <div class="submenu-group">
+                                    <div class="submenu-title">디지털 아트(Digital Art)</div>
+                                    <a href="#" class="menu-item" onclick="showContent('digital-painting')">디지털
+                                        페인팅(Digital Painting)</a>
+                                    <a href="#" class="menu-item" onclick="showContent('concept-art')">컨셉 아트(Concept
+                                        Art)</a>
+                                    <a href="#" class="menu-item" onclick="showContent('matte-painting')">매트 페인팅(Matte
+                                        Painting)</a>
+                                    <a href="#" class="menu-item" onclick="showContent('3d-render')">3D 렌더(3D
+                                        Render)</a>
+                                </div>
+
+                                <div class="submenu-group">
+                                    <div class="submenu-title">일러스트레이션(Illustration)</div>
+                                    <a href="#" class="menu-item" onclick="showContent('anime-style')">애니메 스타일(Anime
+                                        Style)</a>
+                                    <a href="#" class="menu-item" onclick="showContent('cartoon-style')">카툰 스타일(Cartoon
+                                        Style)</a>
+                                    <a href="#" class="menu-item" onclick="showContent('comic-book')">코믹북 스타일(Comic
+                                        Book)</a>
+                                    <a href="#" class="menu-item"
+                                        onclick="showContent('watercolor')">수채화(Watercolor)</a>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- MEDIUM 중분류 -->
+                        <div class="menu-section">
+                            <button class="menu-header" onclick="toggleSection('medium')">
+                                <i data-lucide="brush" class="menu-icon"></i>
+                                <span>매체(MEDIUM)</span>
+                                <i data-lucide="chevron-down" class="chevron-icon" id="medium-chevron"></i>
+                            </button>
+                            <div class="menu-items" id="medium-items">
+                                <div class="submenu-group">
+                                    <div class="submenu-title">전통 매체(Traditional)</div>
+                                    <a href="#" class="menu-item" onclick="showContent('oil-painting')">유화(Oil
+                                        Painting)</a>
+                                    <a href="#" class="menu-item" onclick="showContent('acrylic-painting')">아크릴화(Acrylic
+                                        Painting)</a>
+                                    <a href="#" class="menu-item" onclick="showContent('pencil-drawing')">연필화(Pencil
+                                        Drawing)</a>
+                                    <a href="#" class="menu-item" onclick="showContent('charcoal')">목탄화(Charcoal)</a>
+                                </div>
+
+                                <div class="submenu-group">
+                                    <div class="submenu-title">사진 매체(Photography)</div>
+                                    <a href="#" class="menu-item" onclick="showContent('digital-photography')">디지털
+                                        사진(Digital Photography)</a>
+                                    <a href="#" class="menu-item" onclick="showContent('film-photography')">필름 사진(Film
+                                        Photography)</a>
+                                    <a href="#" class="menu-item" onclick="showContent('polaroid')">폴라로이드(Polaroid)</a>
+                                    <a href="#" class="menu-item" onclick="showContent('long-exposure')">장노출(Long
+                                        Exposure)</a>
+                                </div>
+
+                                <div class="submenu-group">
+                                    <div class="submenu-title">혼합 매체(Mixed Media)</div>
+                                    <a href="#" class="menu-item" onclick="showContent('collage')">콜라주(Collage)</a>
+                                    <a href="#" class="menu-item" onclick="showContent('digital-collage')">디지털
+                                        콜라주(Digital Collage)</a>
+                                    <a href="#" class="menu-item" onclick="showContent('mixed-technique')">혼합 기법(Mixed
+                                        Technique)</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CAMERA 중분류 -->
+                        <div class="menu-section">
+                            <button class="menu-header" onclick="toggleSection('camera')">
+                                <i data-lucide="aperture" class="menu-icon"></i>
+                                <span>카메라(CAMERA)</span>
+                                <i data-lucide="chevron-down" class="chevron-icon" id="camera-chevron"></i>
+                            </button>
+                            <div class="menu-items" id="camera-items">
+                                <!-- Shot Size -->
+                                <div class="submenu-group">
+                                    <button class="submenu-title" onclick="toggleSubmenu('shot-size-submenu')">
+                                        <span>샷 크기(Shot Size)</span>
+                                        <i data-lucide="chevron-down" class="submenu-chevron"
+                                            id="shot-size-submenu-icon"></i>
+                                    </button>
+                                    <div class="submenu-items" id="shot-size-submenu">
+                                        <a href="#" class="menu-item" onclick="showContent('extreme-closeup')">익스트림
+                                            클로즈업(Extreme Close-up)</a>
+                                        <a href="#" class="menu-item"
+                                            onclick="showContent('closeup')">클로즈업(Close-up)</a>
+                                        <a href="#" class="menu-item" onclick="showContent('medium-shot')">미디엄 샷(Medium
+                                            Shot)</a>
+                                        <a href="#" class="menu-item" onclick="showContent('cowboy-shot')">카우보이 샷(Cowboy
+                                            Shot)</a>
+                                        <a href="#" class="menu-item" onclick="showContent('full-shot')">풀 샷(Full
+                                            Shot)</a>
+                                        <a href="#" class="menu-item" onclick="showContent('wide-shot')">와이드 샷(Wide
+                                            Shot)</a>
+                                        <a href="#" class="menu-item" onclick="showContent('extreme-wide')">익스트림
+                                            와이드(Extreme Wide)</a>
+                                    </div>
+                                </div>
+
+                                <!-- Camera Angle -->
+                                <div class="submenu-group">
+                                    <button class="submenu-title" onclick="toggleSubmenu('camera-angle-submenu')">
+                                        <span>카메라 앵글(Camera Angle)</span>
+                                        <i data-lucide="chevron-down" class="submenu-chevron"
+                                            id="camera-angle-submenu-icon"></i>
+                                    </button>
+                                    <div class="submenu-items" id="camera-angle-submenu">
+                                        <a href="#" class="menu-item" onclick="showContent('eye-level')">아이 레벨(Eye
+                                            Level)</a>
+                                        <a href="#" class="menu-item" onclick="showContent('low-angle')">로우 앵글(Low
+                                            Angle)</a>
+                                        <a href="#" class="menu-item" onclick="showContent('high-angle')">하이 앵글(High
+                                            Angle)</a>
+                                        <a href="#" class="menu-item" onclick="showContent('birds-eye')">버즈 아이 뷰(Bird's
+                                            Eye View)</a>
+                                        <a href="#" class="menu-item" onclick="showContent('overhead')">오버헤드 샷(Overhead
+                                            Shot)</a>
+                                        <a href="#" class="menu-item" onclick="showContent('dutch-angle')">더치 앵글(Dutch
+                                            Angle)</a>
+                                        <a href="#" class="menu-item" onclick="showContent('worms-eye')">웜즈 아이 뷰(Worm's
+                                            Eye)</a>
+                                        <a href="#" class="menu-item" onclick="showContent('ground-level')">그라운드
+                                            레벨(Ground Level)</a>
+                                    </div>
+                                </div>
+
+                                <!-- Viewpoint -->
+                                <div class="submenu-group">
+                                    <button class="submenu-title" onclick="toggleSubmenu('viewpoint-submenu')">
+                                        <span>시점(Viewpoint)</span>
+                                        <i data-lucide="chevron-down" class="submenu-chevron"
+                                            id="viewpoint-submenu-icon"></i>
+                                    </button>
+                                    <div class="submenu-items" id="viewpoint-submenu">
+                                        <a href="#" class="menu-item" onclick="showContent('side-view')">사이드/프로필
+                                            뷰(Side/Profile View)</a>
+                                        <a href="#" class="menu-item" onclick="showContent('back-view')">백 뷰(Back
+                                            View)</a>
+                                        <a href="#" class="menu-item" onclick="showContent('three-quarter')">3/4 뷰(3/4
+                                            View)</a>
+                                        <a href="#" class="menu-item" onclick="showContent('rear-three-quarter')">리어 3/4
+                                            뷰(Rear 3/4 View)</a>
+                                    </div>
+                                </div>
+
+                                <!-- Special Shots -->
+                                <div class="submenu-group">
+                                    <button class="submenu-title" onclick="toggleSubmenu('special-shots-submenu')">
+                                        <span>특수 샷(Special Shots)</span>
+                                        <i data-lucide="chevron-down" class="submenu-chevron"
+                                            id="special-shots-submenu-icon"></i>
+                                    </button>
+                                    <div class="submenu-items" id="special-shots-submenu">
+                                        <a href="#" class="menu-item" onclick="showContent('pov-shot')">POV 샷(POV
+                                            Shot)</a>
+                                        <a href="#" class="menu-item"
+                                            onclick="showContent('over-shoulder')">오버더숄더(Over-the-Shoulder)</a>
+                                        <a href="#" class="menu-item"
+                                            onclick="showContent('two-shot')">투/쓰리/그룹(Two/Three/Group)</a>
+                                        <a href="#" class="menu-item"
+                                            onclick="showContent('establishing')">에스타블리싱(Establishing)</a>
+                                        <a href="#" class="menu-item" onclick="showContent('master-shot')">마스터 샷(Master
+                                            Shot)</a>
+                                        <a href="#" class="menu-item" onclick="showContent('insert-shot')">인서트 샷(Insert
+                                            Shot)</a>
+                                    </div>
+                                </div>
+
+                                <!-- Composition -->
+                                <div class="submenu-group">
+                                    <button class="submenu-title" onclick="toggleSubmenu('composition-submenu')">
+                                        <span>구도(Composition)</span>
+                                        <i data-lucide="chevron-down" class="submenu-chevron"
+                                            id="composition-submenu-icon"></i>
+                                    </button>
+                                    <div class="submenu-items" id="composition-submenu">
+                                        <a href="#" class="menu-item" onclick="showContent('rule-of-thirds')">삼등분
+                                            법칙(Rule of Thirds)</a>
+                                        <a href="#" class="menu-item" onclick="showContent('center-comp')">중앙 구도(Center
+                                            Composition)</a>
+                                        <a href="#" class="menu-item" onclick="showContent('symmetrical')">대칭
+                                            구도(Symmetrical Shot)</a>
+                                        <a href="#" class="menu-item" onclick="showContent('frame-in-frame')">프레임 속
+                                            프레임(Frame in Frame)</a>
+                                        <a href="#" class="menu-item" onclick="showContent('diagonal')">대각선
+                                            구도(Diagonal)</a>
+                                        <a href="#" class="menu-item" onclick="showContent('layered')">레이어드 샷(Layered
+                                            Shot)</a>
+                                        <a href="#" class="menu-item" onclick="showContent('negative-space')">네거티브
+                                            스페이스(Negative Space)</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- LIGHTING 중분류 -->
+                        <div class="menu-section">
+                            <button class="menu-header" onclick="toggleSection('lighting')">
+                                <i data-lucide="sun" class="menu-icon"></i>
+                                <span>조명(LIGHTING)</span>
+                                <i data-lucide="chevron-down" class="chevron-icon" id="lighting-chevron"></i>
+                            </button>
+                            <div class="menu-items" id="lighting-items">
+                                <div class="submenu-group">
+                                    <button class="submenu-title" onclick="toggleSubmenu('natural-light-submenu')">
+                                        <span>자연광(Natural Light)</span>
+                                        <i data-lucide="chevron-down" class="submenu-chevron"
+                                            id="natural-light-submenu-icon"></i>
+                                    </button>
+                                    <div class="submenu-items" id="natural-light-submenu">
+                                        <a href="#" class="menu-item" onclick="showContent('golden-hour')">골든 아워(Golden
+                                            Hour)</a>
+                                        <a href="#" class="menu-item" onclick="showContent('blue-hour')">블루 아워(Blue
+                                            Hour)</a>
+                                        <a href="#" class="menu-item" onclick="showContent('overcast')">흐린
+                                            날(Overcast)</a>
+                                        <a href="#" class="menu-item" onclick="showContent('harsh-sunlight')">강한
+                                            햇빛(Harsh Sunlight)</a>
+                                    </div>
+                                </div>
+
+                                <div class="submenu-group">
+                                    <button class="submenu-title" onclick="toggleSubmenu('studio-lighting-submenu')">
+                                        <span>스튜디오 조명(Studio Lighting)</span>
+                                        <i data-lucide="chevron-down" class="submenu-chevron"
+                                            id="studio-lighting-submenu-icon"></i>
+                                    </button>
+                                    <div class="submenu-items" id="studio-lighting-submenu">
+                                        <a href="#" class="menu-item" onclick="showContent('rembrandt')">렘브란트
+                                            조명(Rembrandt)</a>
+                                        <a href="#" class="menu-item" onclick="showContent('butterfly')">버터플라이
+                                            조명(Butterfly)</a>
+                                        <a href="#" class="menu-item" onclick="showContent('split-lighting')">스플릿
+                                            조명(Split Lighting)</a>
+                                        <a href="#" class="menu-item" onclick="showContent('rim-lighting')">림 조명(Rim
+                                            Lighting)</a>
+                                    </div>
+                                </div>
+
+                                <div class="submenu-group">
+                                    <button class="submenu-title" onclick="toggleSubmenu('mood-lighting-submenu')">
+                                        <span>분위기 조명(Mood Lighting)</span>
+                                        <i data-lucide="chevron-down" class="submenu-chevron"
+                                            id="mood-lighting-submenu-icon"></i>
+                                    </button>
+                                    <div class="submenu-items" id="mood-lighting-submenu">
+                                        <a href="#" class="menu-item" onclick="showContent('neon-lights')">네온 조명(Neon
+                                            Lights)</a>
+                                        <a href="#" class="menu-item"
+                                            onclick="showContent('candlelight')">촛불(Candlelight)</a>
+                                        <a href="#" class="menu-item"
+                                            onclick="showContent('moonlight')">달빛(Moonlight)</a>
+                                        <a href="#" class="menu-item" onclick="showContent('firelight')">화염
+                                            조명(Firelight)</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 실습과제 #1 섹션 -->
+                        <div class="menu-section" style="margin-top: 15px;">
+                            <button class="menu-header" onclick="showContent('hairstyles')"
+                                style="background: linear-gradient(135deg, #9b59b6, #8e44ad); border: 1px solid #7d3c98;">
+                                <i data-lucide="scissors" class="menu-icon"></i>
+                                <span>실습과제 #1</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 영상 관련 대분류 -->
+                <div class="major-category">
+                    <button class="major-category-header" onclick="toggleMajorCategory('video-category')">
+                        <i data-lucide="video" class="category-icon"></i>
+                        <span>영상 관련(Video)</span>
+                        <i data-lucide="chevron-down" class="chevron-icon" id="video-category-icon"></i>
+                    </button>
+                    <div class="major-category-content" id="video-category">
+
+                        <!-- 카메라 효과 중분류 -->
+                        <div class="menu-section">
+                            <button class="menu-header" onclick="toggleSection('video-camera')">
+                                <i data-lucide="film" class="menu-icon"></i>
+                                <span>카메라 효과(Camera Effects)</span>
+                                <i data-lucide="chevron-down" class="chevron-icon" id="video-camera-chevron"></i>
+                            </button>
+                            <div class="menu-items" id="video-camera-items">
+                                <div class="submenu-group">
+                                    <div class="submenu-title">카메라 움직임(Camera Movement)</div>
+                                    <a href="#" class="menu-item" onclick="showContent('pan')">팬(Pan)</a>
+                                    <a href="#" class="menu-item" onclick="showContent('tilt')">틸트(Tilt)</a>
+                                    <a href="#" class="menu-item" onclick="showContent('dolly')">달리(Dolly)</a>
+                                    <a href="#" class="menu-item" onclick="showContent('tracking')">트래킹(Tracking)</a>
+                                    <a href="#" class="menu-item" onclick="showContent('crane')">크레인(Crane)</a>
+                                    <a href="#" class="menu-item" onclick="showContent('handheld')">핸드헬드(Handheld)</a>
+                                </div>
+
+                                <div class="submenu-group">
+                                    <div class="submenu-title">전환 효과(Transitions)</div>
+                                    <a href="#" class="menu-item" onclick="showContent('cut')">컷(Cut)</a>
+                                    <a href="#" class="menu-item" onclick="showContent('fade')">페이드(Fade)</a>
+                                    <a href="#" class="menu-item" onclick="showContent('dissolve')">디졸브(Dissolve)</a>
+                                    <a href="#" class="menu-item" onclick="showContent('wipe')">와이프(Wipe)</a>
+                                    <a href="#" class="menu-item" onclick="showContent('match-cut')">매치 컷(Match
+                                        Cut)</a>
+                                </div>
+
+                                <div class="submenu-group">
+                                    <div class="submenu-title">특수 효과(Special Effects)</div>
+                                    <a href="#" class="menu-item" onclick="showContent('slow-motion')">슬로우 모션(Slow
+                                        Motion)</a>
+                                    <a href="#" class="menu-item"
+                                        onclick="showContent('time-lapse')">타임랩스(Time-lapse)</a>
+                                    <a href="#" class="menu-item" onclick="showContent('freeze-frame')">프리즈
+                                        프레임(Freeze Frame)</a>
+                                    <a href="#" class="menu-item" onclick="showContent('motion-blur')">모션 블러(Motion
+                                        Blur)</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 실습과제 대분류 -->
+                <div class="major-category">
+                    <button class="major-category-header" onclick="toggleMajorCategory('practice-category')">
+                        <i data-lucide="graduation-cap" class="category-icon"></i>
+                        <span>실습과제(Practice)</span>
+                        <i data-lucide="chevron-down" class="chevron-icon" id="practice-category-icon"></i>
+                    </button>
+                    <div class="major-category-content" id="practice-category">
+                        <!-- 바나나만들기 중분류 -->
+                        <div class="menu-section">
+                            <button class="menu-header" onclick="toggleSection('banana-practice')"
+                                style="background: rgba(45, 45, 45, 0.9); border: 1px solid #666; color: #fff;">
+                                <i data-lucide="sparkles" class="menu-icon"></i>
+                                <span>바나나만들기</span>
+                                <i data-lucide="chevron-down" class="chevron-icon" id="banana-practice-chevron"></i>
+                            </button>
+                            <div class="menu-items" id="banana-practice-items">
+                                <a href="#" class="menu-item" onclick="showContent('banana-magic')">마법의프롬프트</a>
+                            </div>
+                        </div>
+
+                        <!-- 실습과제 #1 중분류 -->
+                        <div class="menu-section">
+                            <button class="menu-header" onclick="toggleSection('hairstyle-practice')"
+                                style="background: rgba(45, 45, 45, 0.9); border: 1px solid #666; color: #fff;">
+                                <i data-lucide="scissors" class="menu-icon"></i>
+                                <span>실습과제 #1</span>
+                                <i data-lucide="chevron-down" class="chevron-icon" id="hairstyle-practice-chevron"></i>
+                            </button>
+                            <div class="menu-items" id="hairstyle-practice-items">
+                                <a href="#" class="menu-item" onclick="showContent('hairstyles')">헤어스타일 변경</a>
+                            </div>
+                        </div>
+
+                        <!-- 실습자료 #2 중분류 -->
+                        <div class="menu-section">
+                            <button class="menu-header" onclick="toggleSection('animal-mukbang')"
+                                style="background: rgba(45, 45, 45, 0.9); border: 1px solid #666; color: #fff;">
+                                <i data-lucide="utensils" class="menu-icon"></i>
+                                <span>실습자료 #2</span>
+                                <i data-lucide="chevron-down" class="chevron-icon" id="animal-mukbang-chevron"></i>
+                            </button>
+                            <div class="menu-items" id="animal-mukbang-items">
+                                <a href="#" class="menu-item" onclick="showContent('chimpanzee-video')">침팬지
+                                    영상만들기</a>
+                                <a href="#" class="menu-item" onclick="showContent('veo-prompts')">VEO영상 만들기</a>
+                            </div>
+                        </div>
+
+                        <!-- 팀별과제 중분류 -->
+                        <div class="menu-section">
+                            <button class="menu-header" onclick="showContent('team-assignments')"
+                                style="background: linear-gradient(135deg, #3498db, #2980b9); border: 1px solid #1e6ba8; color: #fff;">
+                                <i data-lucide="users" class="menu-icon"></i>
+                                <span>팀별과제</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI툴 직접 버튼 - 임시 비활성화 -->
+                <!-- <div class="menu-section" style="margin-top: 20px; padding-top: 20px; border-top: 2px solid #ff6b6b;">
+                    <button class="menu-header" onclick="window.open('https://ai-252213558759.us-west1.run.app', '_blank')" style="background: rgba(45, 45, 45, 0.9); border: 1px solid #666; cursor: pointer; color: #fff;">
+                        <i data-lucide="sparkles" class="menu-icon"></i>
+                        <span>AI툴</span>
+                    </button>
+                </div> -->
+
+                <!-- 프레임추출기 버튼 -->
+                <div class="menu-section" style="margin-top: 10px;">
+                    <button class="menu-header" onclick="window.open('https://tbframe.vercel.app/', '_blank')"
+                        style="background: rgba(45, 45, 45, 0.9); border: 1px solid #666; cursor: pointer; color: #fff;">
+                        <i data-lucide="frame" class="menu-icon"></i>
+                        <span>프레임추출기</span>
+                        <i data-lucide="external-link" style="width: 16px; height: 16px; margin-left: auto;"></i>
+                    </button>
+                </div>
+
+
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="content">
+            <div id="content-area">
+                <!-- Content will be dynamically loaded here -->
+                <div class="welcome-message">
+                    <div class="main-image-container">
+                        <img src="images/main.png" alt="AI TOOLBEE" class="main-hero-image">
+                        <div class="welcome-overlay">
+                            <h2>AI TOOLBEE GUIDE</h2>
+                            <p>AI TOOLBEE의 프롬프트를 명확하게 알기위한 지침 가이드</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pagination Controls -->
+            <div class="pagination" id="pagination">
+                <button class="pagination-btn" onclick="previousPage()" id="prev-btn">
+                    <i data-lucide="chevron-left"></i>
+                    <span>이전</span>
+                </button>
+                <div class="page-indicator">
+                    <span id="current-page">1</span> / <span id="total-pages">1</span>
+                </div>
+                <button class="pagination-btn" onclick="nextPage()" id="next-btn">
+                    <span>다음</span>
+                    <i data-lucide="chevron-right"></i>
+                </button>
+            </div>
+        </main>
+    </div>
+
+    <!-- Image Modal -->
+    <div id="image-modal" class="image-modal" onclick="closeImageModal()">
+        <span class="modal-close" onclick="closeImageModal()">&times;</span>
+        <img class="modal-content" id="modal-image" onclick="event.stopPropagation()">
+        <div class="modal-caption" id="modal-caption"></div>
+    </div>
+
+    <!-- Video Modal -->
+    <div id="video-modal" class="video-modal" onclick="closeVideoModal()">
+        <span class="modal-close" onclick="closeVideoModal()">&times;</span>
+        <div class="video-modal-content" onclick="event.stopPropagation()">
+            <iframe id="modal-video" class="modal-video-iframe" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- AIFI API Settings Modal -->
+    <div id="aifi-settings-modal" class="aifi-modal" style="display: none;">
+        <div class="aifi-modal-content">
+            <div class="aifi-modal-header">
+                <h3>⚙️ API 설정</h3>
+                <button class="aifi-modal-close" onclick="closeAifiSettings()">&times;</button>
+            </div>
+            <div class="aifi-modal-body">
+                <div class="form-group">
+                    <label for="modal-api-key">🔑 API Key</label>
+                    <input type="password" id="modal-api-key" class="aifi-input" placeholder="API 키를 입력하세요">
+                    <small class="aifi-help-text">
+                        <span style="color: #4CAF50; font-size: 12px;">✅ 이미지 생성, 프롬프트 추출, 영상 프롬프트 생성</span><br>
+                        <span style="color: #999; font-size: 11px;">모든 AI 기능을 사용할 수 있습니다</span>
+                    </small>
+                </div>
+                <div class="aifi-api-status">
+                    <span class="status-label">상태:</span>
+                    <span class="status-value" id="api-status-text">미설정</span>
+                </div>
+            </div>
+            <div class="aifi-modal-footer">
+                <button class="aifi-test-btn" id="test-api-btn" onclick="testAifiApi()">
+                    <i data-lucide="zap" style="width: 16px; height: 16px;"></i>
+                    <span>연결 테스트</span>
+                </button>
+                <button class="button aifi-button" onclick="saveAifiSettings()">
+                    <i data-lucide="save" style="width: 16px; height: 16px;"></i>
+                    저장하기
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Expert Course Password Modal -->
+    <div id="expert-password-modal" class="aifi-modal" style="display: none;">
+        <div class="aifi-modal-content" style="max-width: 400px;">
+            <div class="aifi-modal-header">
+                <h3>🔒 전문가 과정 접근</h3>
+                <button class="aifi-modal-close" onclick="closeExpertPasswordModal()">&times;</button>
+            </div>
+            <div class="aifi-modal-body">
+                <div class="form-group">
+                    <label for="expert-password-input">비밀번호를 입력하세요</label>
+                    <input type="password" id="expert-password-input" class="aifi-input" placeholder="비밀번호" onkeypress="handleExpertPasswordKeyPress(event)">
+                    <small class="aifi-help-text" style="color: #999; font-size: 12px;">
+                        전문가 과정은 비밀번호가 필요합니다.
+                    </small>
+                </div>
+                <div id="password-error" style="color: #f44336; font-size: 14px; margin-top: 10px; display: none;">
+                    비밀번호가 올바르지 않습니다.
+                </div>
+            </div>
+            <div class="aifi-modal-footer">
+                <button class="button aifi-button" onclick="verifyExpertPassword()">
+                    <i data-lucide="unlock" style="width: 16px; height: 16px;"></i>
+                    확인
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Scripts -->
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+    <script>
+        // Initialize Lucide icons after modal is added
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        });
+    </script>
+</body>
+
+</html>

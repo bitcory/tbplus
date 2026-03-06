@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>동영상 갤러리 - AI TOOLBEE</title>
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="images/favicon_io/site.webmanifest">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css?v=2.1">
+    <link rel="stylesheet" href="video-gallery.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-section">
+                <img src="images/favicon_io/favicon-32x32.png" alt="AI TOOLBEE Logo" class="logo-icon">
+                <h1>AI TOOLBEE</h1>
+            </div>
+            <div class="header-info">
+                <span class="badge">v2.0</span>
+                <span class="author">하루오프</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-content">
+
+                <!-- AI TOOLBEE 소개 -->
+                <div class="menu-section" style="margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #333;">
+                    <button class="menu-header" onclick="toggleSection('aifi-info')" style="background: linear-gradient(135deg, #2a2a2a, #1f1f1f); border: 1px solid #444;">
+                        <i data-lucide="book-open" class="menu-icon"></i>
+                        <span>AI TOOLBEE</span>
+                        <i data-lucide="chevron-down" class="chevron-icon" id="aifi-info-chevron"></i>
+                    </button>
+                    <div class="menu-items" id="aifi-info-items">
+                        <a href="index.html" class="menu-item">
+                            <i data-lucide="user" style="width: 16px; height: 16px; margin-right: 8px;"></i>
+                            강사 소개
+                        </a>
+                        <a href="video-gallery.html" class="menu-item active">
+                            <i data-lucide="play-circle" style="width: 16px; height: 16px; margin-right: 8px;"></i>
+                            동영상 갤러리
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 이미지 관련 대분류 -->
+                <div class="major-category">
+                    <button class="major-category-header" onclick="window.location.href='index.html'">
+                        <i data-lucide="arrow-left" class="category-icon"></i>
+                        <span>메인 페이지로 돌아가기</span>
+                    </button>
+                </div>
+
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="content">
+            <div class="gallery-header">
+                <h2>AI TOOLBEE 동영상 갤러리</h2>
+                <p>AI TOOLBEE를 통해 제작된 영상 작품들을 소개합니다</p>
+            </div>
+
+            <div class="video-container">
+                <div class="video-carousel">
+                    <!-- Video 1 -->
+                    <div class="video-item">
+                        <div class="video-info">
+                            <h3>AI TOOLBEE 메인영상</h3>
+                            <p>AI TOOLBEE 사용자 JU0님의 영상</p>
+                        </div>
+                        <div class="video-wrapper">
+                            <video
+                                controls
+                                preload="metadata"
+                                poster=""
+                                data-src="https://www.dropbox.com/scl/fi/lnh8a7j43mn0yqwh88gqi/hero-background.mp4?rlkey=w15ohfm89jnn2c92179m07vqh&st=9uthd44t&raw=1">
+                            </video>
+                            <div class="play-overlay">
+                                <i data-lucide="play-circle" class="play-icon"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Video 2 -->
+                    <div class="video-item">
+                        <div class="video-info">
+                            <h3>실전 활용 사례 #1</h3>
+                            <p>AI TOOLBEE를 활용한 광고 영상 제작 프로세스</p>
+                        </div>
+                        <div class="video-wrapper">
+                            <video
+                                controls
+                                preload="metadata"
+                                poster=""
+                                data-src="https://www.dropbox.com/scl/fi/toi1rrhkdviwe55y85ofu/A8EFD160-FA11-4A34-A409-E1792DBCC723_video.MP4?rlkey=agk6cyqkderoh0mvb5k9ha3wa&st=g3f0nijo&raw=1">
+                            </video>
+                            <div class="play-overlay">
+                                <i data-lucide="play-circle" class="play-icon"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Video 3 -->
+                    <div class="video-item">
+                        <div class="video-info">
+                            <h3>실전 활용 사례 #2</h3>
+                            <p>감성적인 스토리텔링을 위한 AI TOOLBEE 응용법</p>
+                        </div>
+                        <div class="video-wrapper">
+                            <video
+                                controls
+                                preload="metadata"
+                                poster=""
+                                data-src="https://www.dropbox.com/scl/fi/kbln8arxz9y5sqr1bk9wh/548AC53B-8DF1-459F-99C4-808ABCCB27D6_video.MP4?rlkey=mw8r4b2ozqd9a7d1ffp34nx7a&st=dbaqniw5&raw=1">
+                            </video>
+                            <div class="play-overlay">
+                                <i data-lucide="play-circle" class="play-icon"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Arrows -->
+                <button class="nav-arrow nav-arrow-left" onclick="scrollGallery('left')">
+                    <i data-lucide="chevron-left"></i>
+                </button>
+                <button class="nav-arrow nav-arrow-right" onclick="scrollGallery('right')">
+                    <i data-lucide="chevron-right"></i>
+                </button>
+
+                <!-- Scroll Indicator -->
+                <div class="scroll-indicator">
+                    <span class="indicator-dot active" data-index="0"></span>
+                    <span class="indicator-dot" data-index="1"></span>
+                    <span class="indicator-dot" data-index="2"></span>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="video-gallery.js"></script>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
